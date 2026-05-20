@@ -1,23 +1,4 @@
-const LogoIcon = () => (
-  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <circle cx="32" cy="32" r="30" fill="#3B5240" />
-    <circle cx="45" cy="16" r="6" fill="#F5EFE6" />
-    <circle cx="43.3" cy="14.8" r="1.1" fill="#3B5240" />
-    <circle cx="46.8" cy="17.3" r="0.9" fill="#3B5240" />
-    <path d="M14 28C19 18.5 30 12.5 41.5 13.5" fill="none" stroke="#F5EFE6" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" />
-    <path d="M18 38.5C21.4 32.4 27 29 32.1 29C39.5 29 45.4 33.9 47.4 40.4V42.5H16.8V41C16.8 40.1 17.1 39.3 18 38.5Z" fill="#F5EFE6" />
-    <path d="M21.5 41.2H42.7" stroke="#3B5240" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M24 27.8C27.2 24.3 31.3 22.7 36.4 23.2" fill="none" stroke="#B8935A" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M26.2 24.3C27.7 20.4 31.5 17.2 35.8 16.3" fill="none" stroke="#B8935A" strokeWidth="1.4" strokeLinecap="round" opacity="0.9" />
-    <circle cx="20.8" cy="22.5" r="2.2" fill="#B8935A" />
-    <ellipse cx="54" cy="48" rx="7" ry="5" fill="#8CAF90" opacity="0.9" transform="rotate(-20 54 48)" />
-    <circle cx="52" cy="47" r="1" fill="#3B5240" opacity="0.5" />
-    <circle cx="55" cy="49.5" r="0.7" fill="#3B5240" opacity="0.4" />
-    <ellipse cx="11" cy="50" rx="2" ry="3" fill="#B8935A" opacity="0.6" transform="rotate(15 11 50)" />
-    <ellipse cx="15" cy="53" rx="1.5" ry="2.5" fill="#B8935A" opacity="0.5" transform="rotate(-10 15 53)" />
-    <ellipse cx="8" cy="54" rx="1.5" ry="2.5" fill="#B8935A" opacity="0.45" transform="rotate(25 8 54)" />
-  </svg>
-);
+import logoUrl from '../../assets/logo.jpg';
 
 const FOOTER_PLANS = [
   'Lean Start — 1200 kcal',
@@ -51,14 +32,9 @@ export default function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 'var(--grid-gap-sm)', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }} className="footer-top-grid">
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '0.9rem' }}>
-              <div style={{ width: 44, height: 44, borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 24px rgba(59,82,64,0.22)', flexShrink: 0 }}>
-                <LogoIcon />
+              <div style={{ height: 60, overflow: 'hidden', flexShrink: 0, marginBottom: '0.9rem' }}>
+                <img src={logoUrl} alt="Chicxulub Nutrition" style={{ height: '100%', width: 'auto', objectFit: 'contain', background: '#fff', padding: '4px', borderRadius: '8px' }} />
               </div>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', color: '#fff', lineHeight: 0.95 }}>
-                Chicxulub<span style={{ color: '#8CAF90' }}>Nutrition</span>
-              </div>
-            </div>
             <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, maxWidth: 280, marginBottom: '1.5rem' }}>
               Chicxulub Nutrition is Hyderabad&apos;s premium asteroid-inspired diet cloud kitchen. Dietitian-designed meals, cooked fresh daily and delivered to your door.
             </p>

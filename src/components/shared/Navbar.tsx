@@ -11,26 +11,7 @@ const NAV_LINKS = [
   { href: '#faq', label: 'FAQ' },
 ];
 
-const LogoIcon = () => (
-  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" className="w-full h-full">
-    <circle cx="32" cy="32" r="30" fill="#3B5240" />
-    <circle cx="45" cy="16" r="6" fill="#F5EFE6" />
-    <circle cx="43.3" cy="14.8" r="1.1" fill="#3B5240" />
-    <circle cx="46.8" cy="17.3" r="0.9" fill="#3B5240" />
-    <path d="M14 28C19 18.5 30 12.5 41.5 13.5" fill="none" stroke="#F5EFE6" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" />
-    <path d="M18 38.5C21.4 32.4 27 29 32.1 29C39.5 29 45.4 33.9 47.4 40.4V42.5H16.8V41C16.8 40.1 17.1 39.3 18 38.5Z" fill="#F5EFE6" />
-    <path d="M21.5 41.2H42.7" stroke="#3B5240" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M24 27.8C27.2 24.3 31.3 22.7 36.4 23.2" fill="none" stroke="#B8935A" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M26.2 24.3C27.7 20.4 31.5 17.2 35.8 16.3" fill="none" stroke="#B8935A" strokeWidth="1.4" strokeLinecap="round" opacity="0.9" />
-    <circle cx="20.8" cy="22.5" r="2.2" fill="#B8935A" />
-    <ellipse cx="54" cy="48" rx="7" ry="5" fill="#8CAF90" opacity="0.9" transform="rotate(-20 54 48)" />
-    <circle cx="52" cy="47" r="1" fill="#3B5240" opacity="0.5" />
-    <circle cx="55" cy="49.5" r="0.7" fill="#3B5240" opacity="0.4" />
-    <ellipse cx="11" cy="50" rx="2" ry="3" fill="#B8935A" opacity="0.6" transform="rotate(15 11 50)" />
-    <ellipse cx="15" cy="53" rx="1.5" ry="2.5" fill="#B8935A" opacity="0.5" transform="rotate(-10 15 53)" />
-    <ellipse cx="8" cy="54" rx="1.5" ry="2.5" fill="#B8935A" opacity="0.45" transform="rotate(25 8 54)" />
-  </svg>
-);
+import logoUrl from '../../assets/logo.jpg';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,14 +61,10 @@ export default function Navbar() {
     >
       <div style={{ maxWidth: '1260px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 var(--section-px)', height: '68px', gap: '1.5rem' }}>
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, textDecoration: 'none' }}>
-          <div style={{ width: 36, height: 36, borderRadius: 10, overflow: 'hidden' }}>
-            <LogoIcon />
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, textDecoration: 'none' }}>
+          <div style={{ height: 60, overflow: 'hidden' }}>
+            <img src={logoUrl} alt="Chicxulub Nutrition" style={{ height: '100%', width: 'auto', objectFit: 'contain' }} />
           </div>
-          <span style={{ display: 'flex', alignItems: 'baseline', gap: '6px', color: '#0F1410' }}>
-            <strong style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.45rem', fontWeight: 600, letterSpacing: '0.01em' }}>Chicxulub</strong>
-            <span style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#9B958E', fontWeight: 500 }}>Nutrition</span>
-          </span>
         </a>
 
         {/* Desktop nav links */}
@@ -166,7 +143,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            /* Auth buttons */
+            /* Auth buttons 
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 onClick={() => openAuthModal('login')}
@@ -197,6 +174,8 @@ export default function Navbar() {
                 Start Free
               </button>
             </div>
+            */
+            null
           )}
 
           <a
@@ -212,7 +191,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.background = '#1aad52'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = '#25D366'; e.currentTarget.style.transform = 'translateY(0)'; }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.136 1.542 5.868L0 24l6.314-1.524A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.034-1.387l-.361-.213-3.746.905.945-3.668-.235-.378A9.818 9.818 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.136 1.542 5.868L0 24l6.314-1.524A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.034-1.387l-.361-.213-3.746.905.945-3.668-.235-.378A9.818 9.818 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z" /></svg>
             Order
           </a>
         </div>
@@ -247,7 +226,7 @@ export default function Navbar() {
               >
                 Sign Out
               </button>
-            ) : (
+            ) : null /* (
               <>
                 <button
                   onClick={() => { openAuthModal('login'); setOpen(false); }}
@@ -262,7 +241,7 @@ export default function Navbar() {
                   Start Free
                 </button>
               </>
-            )}
+            ) */}
             <a
               href="https://wa.me/918260333968"
               target="_blank" rel="noopener noreferrer"
