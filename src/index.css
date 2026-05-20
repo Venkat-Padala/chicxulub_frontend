@@ -1,0 +1,186 @@
+
+/* Responsive Variables */
+:root {
+  --section-px: 3rem;
+  --section-py: 3.5rem;
+  --grid-gap-lg: 5rem;
+  --grid-gap-md: 4rem;
+  --grid-gap-sm: 3rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-px: 1.25rem;
+    --section-py: 2.5rem;
+    --grid-gap-lg: 2.5rem;
+    --grid-gap-md: 2rem;
+    --grid-gap-sm: 2rem;
+  }
+  
+  .hidden-mobile { display: none !important; }
+  
+  .trust-item {
+    border-right: none !important;
+    padding: 1rem 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  
+  h1 { font-size: 2.8rem !important; }
+  h2 { font-size: 2.2rem !important; }
+  
+  .hero-grid > div:first-child { text-align: center; }
+  .hero-grid p { margin-left: auto; margin-right: auto; }
+  .hero-grid .reveal > div { justify-content: center; }
+}
+
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-ink: #0F1410;
+  --color-ink-soft: #2C3429;
+  --color-moss: #3B5240;
+  --color-moss-mid: #5A7A61;
+  --color-moss-light: #8CAF90;
+  --color-moss-pale: #EEF4EF;
+  --color-moss-tint: #F5F9F5;
+  --color-gold: #B8935A;
+  --color-gold-pale: #F5EFE6;
+  --color-cream: #FAF8F4;
+  --color-warm: #F2EDE5;
+  --color-stone: #9B958E;
+  --color-stone-light: #C8C3BC;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+
+  /* Border radius */
+  --radius-pill: 50px;
+  --radius-card: 20px;
+  --radius-sm: 10px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 24px rgba(15, 20, 16, 0.07);
+  --shadow-lift: 0 12px 48px rgba(15, 20, 16, 0.12);
+  --shadow-moss: 0 4px 24px rgba(59, 82, 64, 0.28);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+p { font-weight: 300; }
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-moss-light); border-radius: 2px; }
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes floatX {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(91, 201, 127, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(91, 201, 127, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(91, 201, 127, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, #e8ede8 25%, #f0f5f0 50%, #e8ede8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Live dot */
+.live-dot {
+  animation: blink 2s ease-in-out infinite;
+}
+
+/* Float animations */
+.float-1 { animation: floatY 4s ease-in-out infinite; }
+.float-2 { animation: floatY 4s ease-in-out infinite 1.2s; }
+.float-3 { animation: floatX 5s ease-in-out infinite; }
+
+/* Pulse ring */
+.pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
